@@ -1,51 +1,80 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>PEC 2 Visualización de datos</title>
-    <style>
-		/* Estilo de la cabecera */
-		header {
-			background-color: #333;
-			color: #fff;
-			padding: 10px;
-			text-align: center;
-		}
-		/* Estilo del título */
-		h1 {
-			font-size: 36px;
-			margin: 0;
-		}
-	</style>
-  </head>
-  <body>
-    <header>
-        <h1>PEC 2 Visualización de datos</h1>
-        <p>Juan Edgar Baldelomar Salazar</p>
-    </header>
+<head>
+  <style>
+    .box {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
     
-    <ul>
-        <li>
-            <h1>Area Chart</h1>
-            <div class="areaChart">
-                <div class="flourish-embed flourish-chart" data-src="visualisation/13606939">
-                    <script src="https://public.flourish.studio/resources/embed.js"></script>
-                </div>
-            </div>  
-        </li>
-        <li>
-            <h1>Waterfall Chart</h1>
-            <div class="flourish-embed flourish-chart" data-src="visualisation/13608164">
-                <script src="https://public.flourish.studio/resources/embed.js"></script>
-            </div>
-        </li>
-        <li>
-            <h1>Rose Chart</h1>
-            <div class="flourish-embed flourish-radar" data-src="visualisation/13608757">
-                <script src="https://public.flourish.studio/resources/embed.js"></script>
-            </div>    
-        </li>
-    </ul>
+    .news-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      background-color: #f1f1f1;
+    }
+    
+    .news-article {
+      max-width: 800px;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .news-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .news-content {
+      font-size: 16px;
+    }
+    
+    .news-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    window.addEventListener('scroll', function() {
+      var boxes = document.querySelectorAll('.box');
+      for (var i = 0; i < boxes.length; i++) {
+        var box = boxes[i];
+        var boxTop = box.getBoundingClientRect().top;
+        var windowHeight = window.innerHeight;
+        
+        if (boxTop < windowHeight) {
+          box.style.opacity = 1;
+        }
+      }
+    });
+  </script>
+</head>
+<body>
+  <h1>Precio de la energía</h1>
 
-  </body>
+  <div class="box flourish-embed flourish-chart" data-src="visualisation/13993913"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+    <div class="news-container">
+    <div class="news-article">
+      <h1 class="news-content">
+        Bruselas autoriza el tope al precio del gas en España para abaratar el precio de la luz
+      </h1>
+  </div></div>
+  <div class="box flourish-embed flourish-chart" data-src="visualisation/13997274"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+  <div class="box flourish-embed flourish-chart" data-src="visualisation/13997404"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+  <div class="box">Div 4</div>
+  <div class="box">Div 5</div>
+
+  <div style="height: 1500px;"></div> <!-- Espacio adicional para hacer scroll -->
+
+</body>
 </html>
